@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學校廁所 - 排行榜</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-trophy"></i> 排行榜</h1>
+            <button class="btn-icon" id="filterBtn">
+                <i class="fas fa-filter"></i>
+            </button>
+        </header>
+
+        <main class="main-content">
+            <div class="ranking-container">
+                <div class="ranking-tabs">
+                    <button class="tab-btn active" data-tab="national">全國排行</button>
+                    <button class="tab-btn" data-tab="custom">自訂搜尋</button>
+                </div>
+
+                <div id="nationalRanking" class="ranking-panel active">
+                    <section class="ranking-section">
+                        <h3><i class="fas fa-graduation-cap"></i> 大學 Top 5</h3>
+                        <div id="universityRanking" class="ranking-list"></div>
+                        <button class="btn btn-link" data-type="大學">查看更多</button>
+                    </section>
+
+                    <section class="ranking-section">
+                        <h3><i class="fas fa-school"></i> 高中 Top 5</h3>
+                        <div id="highSchoolRanking" class="ranking-list"></div>
+                        <button class="btn btn-link" data-type="高中">查看更多</button>
+                    </section>
+
+                    <section class="ranking-section">
+                        <h3><i class="fas fa-school"></i> 國中 Top 5</h3>
+                        <div id="middleSchoolRanking" class="ranking-list"></div>
+                        <button class="btn btn-link" data-type="國中">查看更多</button>
+                    </section>
+
+                    <section class="ranking-section">
+                        <h3><i class="fas fa-school"></i> 國小 Top 5</h3>
+                        <div id="elementaryRanking" class="ranking-list"></div>
+                        <button class="btn btn-link" data-type="國小">查看更多</button>
+                    </section>
+                </div>
+
+                <div id="customRanking" class="ranking-panel">
+                    <div class="filter-form">
+                        <div class="form-group">
+                            <label for="rankingCity">選擇縣市</label>
+                            <select id="rankingCity" class="form-select">
+                                <option value="">全部縣市</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rankingType">選擇學制</label>
+                            <select id="rankingType" class="form-select">
+                                <option value="">全部學制</option>
+                                <option value="大學">大學</option>
+                                <option value="高中">高中</option>
+                                <option value="國中">國中</option>
+                                <option value="國小">國小</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="searchRanking">
+                            <i class="fas fa-search"></i> 搜尋排名
+                        </button>
+                    </div>
+                    <div id="customRankingResults" class="ranking-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="search.html" class="nav-item">
+                <i class="fas fa-search"></i>
+                <span>搜尋學校</span>
+            </a>
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>我的學校</span>
+            </a>
+            <a href="ranking.html" class="nav-item active">
+                <i class="fas fa-trophy"></i>
+                <span>排行榜</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="fullRankingModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="fullRankingTitle"></h2>
+                <button class="btn-close" id="closeFullRanking">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="fullRankingList" class="ranking-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/ranking.js"></script>
+</body>
+</html>

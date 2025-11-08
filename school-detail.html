@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學校廁所 - 學校詳情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <button class="btn-icon" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1 id="schoolName">學校名稱</h1>
+            <button class="btn-icon" id="followBtn">
+                <i class="far fa-star"></i>
+            </button>
+        </header>
+
+        <main class="main-content">
+            <div class="school-detail-container">
+                <div class="school-header">
+                    <div class="school-info">
+                        <h2 id="schoolNameDetail"></h2>
+                        <p class="school-location" id="schoolLocation"></p>
+                    </div>
+                    <div class="overall-rating">
+                        <div class="rating-score" id="overallScore">0.0</div>
+                        <div class="rating-stars" id="overallStars"></div>
+                        <p class="rating-count" id="ratingCount">0 則評價</p>
+                    </div>
+                </div>
+
+                <div class="rating-details">
+                    <h3>評分細項</h3>
+                    <div class="rating-item">
+                        <span>整間廁所乾淨程度</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="cleanliness"></div>
+                            <span class="rating-value" id="cleanliness">0.0</span>
+                        </div>
+                    </div>
+                    <div class="rating-item">
+                        <span>地板乾淨程度</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="floor"></div>
+                            <span class="rating-value" id="floor">0.0</span>
+                        </div>
+                    </div>
+                    <div class="rating-item">
+                        <span>馬桶乾淨程度</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="toilet"></div>
+                            <span class="rating-value" id="toilet">0.0</span>
+                        </div>
+                    </div>
+                    <div class="rating-item">
+                        <span>洗手台乾淨程度</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="sink"></div>
+                            <span class="rating-value" id="sink">0.0</span>
+                        </div>
+                    </div>
+                    <div class="rating-item">
+                        <span>馬桶沖水順暢</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="flush"></div>
+                            <span class="rating-value" id="flush">0.0</span>
+                        </div>
+                    </div>
+                    <div class="rating-item">
+                        <span>廁所內味道</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="smell"></div>
+                            <span class="rating-value" id="smell">0.0</span>
+                        </div>
+                    </div>
+                    <div class="rating-item">
+                        <span>安全程度</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="safety"></div>
+                            <span class="rating-value" id="safety">0.0</span>
+                        </div>
+                    </div>
+                    <div class="rating-item">
+                        <span>廁所數量是否足夠</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" data-item="quantity"></div>
+                            <span class="rating-value" id="quantity">0.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-ratio">
+                    <h3>評價者身份</h3>
+                    <div class="ratio-bar">
+                        <div class="ratio-segment student" id="studentRatio" style="width: 0%">
+                            <span>在校生 0%</span>
+                        </div>
+                        <div class="ratio-segment non-student" id="nonStudentRatio" style="width: 0%">
+                            <span>非在校生 0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-section">
+                    <div class="section-header">
+                        <h3>具體評論</h3>
+                        <select id="reviewSort" class="sort-select">
+                            <option value="likes">按讚數排序</option>
+                            <option value="date">時間排序</option>
+                        </select>
+                    </div>
+                    <div id="reviewsList"></div>
+                </div>
+
+                <div class="suggestions-section">
+                    <h3>善意建議</h3>
+                    <div id="suggestionsList"></div>
+                </div>
+
+                <button class="btn btn-primary btn-large" id="addReviewBtn">
+                    <i class="fas fa-plus"></i> 新增評價
+                </button>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="search.html" class="nav-item">
+                <i class="fas fa-search"></i>
+                <span>搜尋學校</span>
+            </a>
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>我的學校</span>
+            </a>
+            <a href="ranking.html" class="nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>排行榜</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/school-detail.js"></script>
+</body>
+</html>
