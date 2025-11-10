@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學校廁所 - 首頁</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-toilet"></i> 學校廁所</h1>
+            <button class="btn-icon" id="userMenuBtn">
+                <i class="fas fa-user-circle"></i>
+            </button>
+        </header>
+
+        <main class="main-content">
+            <div class="school-list-container">
+                <h2>我的學校清單</h2>
+
+                <section class="school-section">
+                    <h3><i class="fas fa-school"></i> 目前就讀學校</h3>
+                    <div id="currentSchool" class="school-cards">
+                        <p class="empty-message">尚未設定目前就讀學校</p>
+                    </div>
+                </section>
+
+                <section class="school-section">
+                    <h3><i class="fas fa-star"></i> 關注學校</h3>
+                    <div id="followedSchools" class="school-cards">
+                        <p class="empty-message">尚未關注任何學校</p>
+                    </div>
+                </section>
+
+                <section class="school-section">
+                    <h3><i class="fas fa-comment-dots"></i> 評價過的學校</h3>
+                    <div id="ratedSchools" class="school-cards">
+                        <p class="empty-message">尚未評價任何學校</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="search.html" class="nav-item">
+                <i class="fas fa-search"></i>
+                <span>搜尋學校</span>
+            </a>
+            <a href="home.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>我的學校</span>
+            </a>
+            <a href="ranking.html" class="nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>排行榜</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="userMenu" class="modal">
+        <div class="modal-content">
+            <div class="user-info">
+                <div id="userAvatar" class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3 id="userName">使用者</h3>
+                <p id="userEmail">user@example.com</p>
+            </div>
+            <div class="menu-items">
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>個人設定</span>
+                </a>
+                <button id="logoutBtn" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>登出</span>
+                </button>
+            </div>
+            <button class="btn-close" id="closeUserMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="./js/firebase-config.js"></script>
+    <script type="module" src="./js/home.js"></script>
+</body>
+</html>

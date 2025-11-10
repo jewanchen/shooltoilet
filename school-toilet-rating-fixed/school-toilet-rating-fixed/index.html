@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學校廁所 - 登入</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="logo">
+                <i class="fas fa-toilet"></i>
+                <h1>學校廁所</h1>
+                <p class="subtitle">讓每間廁所都更好</p>
+            </div>
+
+            <div id="loginForm" class="form-container active">
+                <h2>登入</h2>
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label for="loginEmail">電子郵件</label>
+                        <input type="email" id="loginEmail" required placeholder="請輸入電子郵件">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">密碼</label>
+                        <input type="password" id="loginPassword" required placeholder="請輸入密碼">
+                    </div>
+                    <button type="submit" class="btn btn-primary">登入</button>
+                    <div class="form-footer">
+                        <a href="#" id="showRegister">還沒有帳號？註冊</a>
+                        <a href="#" id="forgotPassword">忘記密碼？</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="registerForm" class="form-container">
+                <h2>註冊</h2>
+                <form id="registerFormElement">
+                    <div class="form-group">
+                        <label for="registerEmail">電子郵件</label>
+                        <input type="email" id="registerEmail" required placeholder="請輸入電子郵件">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">密碼</label>
+                        <input type="password" id="registerPassword" required placeholder="8字以上，含大小寫英文及數字">
+                        <small class="password-hint">密碼須至少8個字元，包含大寫、小寫英文及數字</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPasswordConfirm">確認密碼</label>
+                        <input type="password" id="registerPasswordConfirm" required placeholder="請再次輸入密碼">
+                    </div>
+                    <button type="submit" class="btn btn-primary">註冊</button>
+                    <div class="form-footer">
+                        <a href="#" id="showLogin">已有帳號？登入</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="verifyEmail" class="form-container">
+                <div class="verify-message">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h2>請驗證您的電子郵件</h2>
+                    <p>我們已將驗證信寄送至您的信箱</p>
+                    <p class="verify-email-address" id="verifyEmailAddress"></p>
+                    <p class="verify-instruction">請點擊郵件中的連結完成驗證</p>
+                    <button class="btn btn-secondary" id="resendVerification">重新發送驗證信</button>
+                    <a href="#" id="backToLogin" class="back-link">返回登入</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="./js/firebase-config.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+</body>
+</html>
