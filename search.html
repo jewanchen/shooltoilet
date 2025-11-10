@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學校廁所 - 搜尋學校</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <button class="btn-icon" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1>搜尋學校</h1>
+            <div></div>
+        </header>
+
+        <main class="main-content">
+            <div class="search-container">
+                <div class="search-tabs">
+                    <button class="tab-btn active" data-tab="region">地區搜尋</button>
+                    <button class="tab-btn" data-tab="keyword">關鍵字搜尋</button>
+                </div>
+
+                <div id="regionSearch" class="search-panel active">
+                    <div class="form-group">
+                        <label for="citySelect">選擇縣市</label>
+                        <select id="citySelect" class="form-select">
+                            <option value="">請選擇縣市</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="districtSelect">選擇地區</label>
+                        <select id="districtSelect" class="form-select" disabled>
+                            <option value="">請先選擇縣市</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schoolTypeSelect">學制</label>
+                        <select id="schoolTypeSelect" class="form-select">
+                            <option value="">全部</option>
+                            <option value="大學">大學</option>
+                            <option value="高中">高中</option>
+                            <option value="國中">國中</option>
+                            <option value="國小">國小</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="searchByRegion">
+                        <i class="fas fa-search"></i> 搜尋
+                    </button>
+                </div>
+
+                <div id="keywordSearch" class="search-panel">
+                    <div class="search-box">
+                        <input type="text" id="keywordInput" placeholder="輸入學校名稱..." class="search-input">
+                        <button class="btn btn-primary" id="searchByKeyword">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="searchResults" class="search-results">
+                    <div class="results-header">
+                        <h3 id="resultsTitle">搜尋結果</h3>
+                        <span id="resultsCount"></span>
+                    </div>
+                    <div id="resultsList" class="school-cards">
+                        <p class="empty-message">請開始搜尋學校</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="search.html" class="nav-item active">
+                <i class="fas fa-search"></i>
+                <span>搜尋學校</span>
+            </a>
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>我的學校</span>
+            </a>
+            <a href="ranking.html" class="nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>排行榜</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="./js/firebase-config.js"></script>
+    <script type="module" src="./js/search.js"></script>
+</body>
+</html>
